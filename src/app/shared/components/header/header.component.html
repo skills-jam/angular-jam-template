@@ -1,0 +1,32 @@
+<nav class="bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <app-logo routerLink="/"></app-logo>
+        </div>
+        <div class="hidden md:block">
+          <app-navigation-wrapper>
+            <app-navigation-item to="/dashboard">
+              Dashboard
+            </app-navigation-item>
+            <app-navigation-item to="/team"> Team </app-navigation-item>
+            <app-navigation-item to="/projects"> Projects </app-navigation-item>
+            <app-navigation-item to="/calendar"> Calendar </app-navigation-item>
+            <app-navigation-item to="/reports"> Reports </app-navigation-item>
+          </app-navigation-wrapper>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <div class="ml-4 flex items-center md:ml-6">
+          <app-btn-icon></app-btn-icon>
+
+          <!-- Profile dropdown -->
+          <div class="ml-3 relative">
+            <app-avatar [src]="userPicture"></app-avatar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
