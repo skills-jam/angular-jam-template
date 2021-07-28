@@ -9,6 +9,13 @@ const routes: Routes = [
         (m) => m.DashboardModule
       ),
   },
+  {
+    path: 'member',
+    loadChildren: () =>
+      import('../pages/member-action/member-action.module').then(
+        (m) => m.MemberActionModule
+      ),
+  },
 ];
 
 @NgModule({

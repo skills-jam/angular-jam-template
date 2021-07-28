@@ -1,1 +1,21 @@
-<p>table-header works!</p>
+<thead class="bg-gray-50">
+  <tr>
+    <th
+      *ngFor="let item of titles"
+      scope="col"
+      class="
+        px-6
+        py-3
+        text-left text-xs
+        font-medium
+        text-gray-500
+        uppercase
+        tracking-wider
+      "
+    >
+      <span [ngClass]="{ 'sr-only': !item.visible }">
+        {{ item.text }}
+      </span>
+    </th>
+  </tr>
+</thead>
