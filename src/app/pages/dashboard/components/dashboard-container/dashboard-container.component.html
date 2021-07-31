@@ -8,7 +8,7 @@
       <app-table-header [titles]="tableHeaders"></app-table-header>
       <app-table-body>
         <tr
-          *ngFor="let item of peoples"
+          *ngFor="let item of memberService.people"
           class="hover:bg-gray-50 cursor-pointer"
         >
           <td class="px-6 py-4 whitespace-nowrap">
@@ -21,14 +21,16 @@
                 />
               </div>
               <div class="ml-4">
-                <div class="text-sm font-medium text-gray-900">Jane Cooper</div>
-                <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                <div class="text-sm font-medium text-gray-900">
+                  {{ item.firstName }} {{ item.lastName }}
+                </div>
+                <div class="text-sm text-gray-500">{{ item.email }}</div>
               </div>
             </div>
           </td>
           <td class="px-6 py-4 whitespace-nowrap">
             <div class="text-sm text-gray-900">
-              Regional Paradigm Technician
+              {{ item.title }}
             </div>
             <div class="text-sm text-gray-500">Optimization</div>
           </td>
@@ -54,7 +56,11 @@
           <td
             class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
           >
-            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+            <a
+              [routerLink]="['/member', item.id]"
+              class="text-indigo-600 hover:text-indigo-900"
+              >Edit</a
+            >
           </td>
         </tr>
       </app-table-body>
@@ -63,7 +69,7 @@
     <ngb-pagination
       [page]="page"
       [pageSize]="1"
-      [collectionSize]="peoples.length"
+      [collectionSize]="memberService.people.length"
       (pageChange)="pageChange($event)"
     ></ngb-pagination>
   </div>

@@ -17,6 +17,7 @@ import { TableTrComponent } from './table/table-tr/table-tr.component';
 import { TableTdComponent } from './table/table-td/table-td.component';
 import { BtnComponent } from './btn/btn.component';
 import { TableFooterComponent } from './table/table-footer/table-footer.component';
+import { InputComponent } from './form/input/input.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TableFooterComponent } from './table/table-footer/table-footer.componen
     TableTdComponent,
     BtnComponent,
     TableFooterComponent,
+    InputComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -55,6 +57,7 @@ import { TableFooterComponent } from './table/table-footer/table-footer.componen
     TableTdComponent,
     BtnComponent,
     TableFooterComponent,
+    InputComponent,
   ],
 })
 export class ComponentsModule {}
