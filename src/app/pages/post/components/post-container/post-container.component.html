@@ -1,0 +1,7 @@
+<!-- <div *ngIf="loading$ | async; else postsList">Loading...</div> -->
+
+<!-- <ng-template #postsList> -->
+<div *ngFor="let post of postService.posts$ | async" class="mb-4">
+  {{ post.title }}
+</div>
+<!-- </ng-template> -->

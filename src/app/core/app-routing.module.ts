@@ -19,9 +19,12 @@ const routes: Routes = [
   {
     path: 'team',
     loadChildren: () =>
-      import('../pages/team/team.module').then(
-        (m) => m.TeamModule
-      ),
+      import('../pages/team/team.module').then((m) => m.TeamModule),
+  },
+  {
+    path: 'posts',
+    loadChildren: () =>
+      import('../pages/post/post.module').then((m) => m.PostModule),
   },
 ];
 
