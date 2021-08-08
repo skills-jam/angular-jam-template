@@ -1,3 +1,4 @@
+import { TeamService } from './services/team.service';
 import { MemberService } from './services/member.service';
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
@@ -29,7 +30,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
-      providers: [MemberService],
+      providers: [MemberService, TeamService],
     };
   }
 }

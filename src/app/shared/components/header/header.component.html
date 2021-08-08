@@ -23,6 +23,9 @@
 
           <!-- Profile dropdown -->
           <div class="ml-3 relative">
+            <span class="text-white">
+              {{ userName$ | async }}
+            </span>
             <app-avatar [src]="userPicture"></app-avatar>
           </div>
         </div>

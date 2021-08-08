@@ -1,6 +1,6 @@
 <app-page-header>
-  <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-  <app-btn [queryParams]="{ page: 'dashboard' }" routerLink="/member/new">
+  <h1 class="text-3xl font-bold text-gray-900">Team</h1>
+  <app-btn [queryParams]="{ page: 'team' }" routerLink="/member/new">
     New member
   </app-btn>
 </app-page-header>
@@ -10,7 +10,7 @@
       <app-table-header [titles]="tableHeaders"></app-table-header>
       <app-table-body>
         <tr
-          *ngFor="let item of memberService.people$ | async"
+          *ngFor="let item of teamService.people"
           class="hover:bg-gray-50 cursor-pointer"
         >
           <td class="px-6 py-4 whitespace-nowrap">
@@ -59,7 +59,6 @@
             class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
           >
             <a
-              [queryParams]="{ page: 'dashboard' }"
               [routerLink]="['/member', item.id]"
               class="text-indigo-600 hover:text-indigo-900"
               >Edit</a
@@ -72,8 +71,7 @@
     <ngb-pagination
       [page]="page"
       [pageSize]="1"
-      [collectionSize]="memberService.people.length"
-      (pageChange)="pageChange($event)"
+      [collectionSize]="teamService.people.length"
     ></ngb-pagination>
   </div>
 </div>

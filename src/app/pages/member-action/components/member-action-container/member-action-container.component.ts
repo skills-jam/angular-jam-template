@@ -1,3 +1,4 @@
+import { TeamService } from './../../../../shared/services/team.service';
 import { State } from '../../../../shared/@types/state.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,6 +15,7 @@ import { Route } from '@angular/compiler/src/core';
 export class MemberActionContainerComponent implements OnInit {
   form: FormGroup;
   state: State;
+  page: string;
   actionTitle: string;
 
   formInputs = [
@@ -28,6 +30,7 @@ export class MemberActionContainerComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private memberService: MemberService,
+    private teamService: TeamService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
@@ -35,10 +38,15 @@ export class MemberActionContainerComponent implements OnInit {
   ngOnInit(): void {
     this.initView();
     this.initForm();
+
+    // this.memberService.people$.subscribe((data) => {
+    //   debugger;
+    // });
   }
 
   initView(): void {
     this.state = this.activatedRoute.snapshot.data.state;
+    this.page = this.activatedRoute.snapshot.queryParams.page;
     this.actionTitle = this.state === State.Create ? 'Create' : 'Update';
   }
 
@@ -56,22 +64,43 @@ export class MemberActionContainerComponent implements OnInit {
     });
 
     if (this.state === State.Edit) {
-      const member = this.memberService.getMember(
-        this.activatedRoute.snapshot.params.id
-      );
+      const member = this.getMember(this.activatedRoute.snapshot.params.id);
       this.form.patchValue(member);
     }
   }
 
   action(): void {
     if (this.state === State.Edit) {
-      this.memberService.editMember(
-        this.activatedRoute.snapshot.params.id,
-        this.form.value
-      );
+      this.editMember(this.activatedRoute.snapshot.params.id, this.form.value);
     } else {
-      this.memberService.addMember(this.form.value);
+      this.addMember(this.form.value);
     }
-    this.router.navigate(['/dashboard']);
+    this.router.navigate([`/${this.page}`]);
+  }
+
+  getMember(id: string) {
+    return this.actionService().getMember(id);
+  }
+
+  editMember(id: string, data) {
+    this.actionService().editMember(id, data);
+  }
+
+  addMember(data) {
+    this.actionService().addMember(data);
+  }
+
+  actionService() {
+    let action;
+    switch (this.page) {
+      case 'dashboard':
+        action = this.memberService;
+        break;
+      case 'team':
+        action = this.teamService;
+        break;
+    }
+
+    return action;
   }
 }

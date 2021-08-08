@@ -13,39 +13,8 @@
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
         <form [formGroup]="form">
-          <ng-template #formInput let-label="label" let-control="control">
-            <app-input [label]="label">
-              <input
-                [formControlName]="control"
-                type="text"
-                name="first-name"
-                autocomplete="given-name"
-                class="
-                  mt-1
-                  focus:ring-indigo-500 focus:border-indigo-500
-                  block
-                  w-full
-                  shadow-sm
-                  sm:text-sm
-                  border-gray-300
-                  rounded-md
-                "
-              />
-            </app-input>
-          </ng-template>
           <div class="shadow overflow-hidden sm:rounded-md">
-            <div *ngFor="let item of formInputs">
-              <ng-container
-                *ngTemplateOutlet="
-                  formInput;
-                  context: {
-                    label: item.label,
-                    control: item.control
-                  }
-                "
-              ></ng-container>
-            </div>
-            <!-- <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="px-4 py-5 bg-white sm:p-6">
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                   <app-input label="First name">
@@ -247,7 +216,7 @@
                   /></app-input>
                 </div>
               </div>
-            </div> -->
+            </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <button
                 (click)="action()"
