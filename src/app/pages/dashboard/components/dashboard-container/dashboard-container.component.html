@@ -1,8 +1,8 @@
 <app-page-header>
-  <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-  <app-btn [queryParams]="{ page: 'dashboard' }" routerLink="/member/new">
-    New member
-  </app-btn>
+  <h1 tooltip="Test tooltip" class="text-3xl font-bold text-gray-900">
+    Dashboard
+  </h1>
+  <app-btn (click)="openModal()"> New member </app-btn>
 </app-page-header>
 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
   <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">

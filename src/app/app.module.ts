@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { defaultDataServiceConfig } from './core/default-data-service.config';
 import { entityConfig } from './core/entity-metadata';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { entityConfig } from './core/entity-metadata';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig),
+    ModalModule.forRoot(),
   ],
   providers: [
     { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },

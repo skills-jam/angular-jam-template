@@ -18,46 +18,32 @@ import { TableTdComponent } from './table/table-td/table-td.component';
 import { BtnComponent } from './btn/btn.component';
 import { TableFooterComponent } from './table/table-footer/table-footer.component';
 import { InputComponent } from './form/input/input.component';
+import { ModalComponent } from './modal/modal.component';
+
+const components = [
+  HeaderComponent,
+  LogoComponent,
+  NavigationWrapperComponent,
+  NavigationItemComponent,
+  BtnIconComponent,
+  AvatarComponent,
+  PageHeaderComponent,
+  IconComponent,
+  StatusComponent,
+  TableComponent,
+  TableHeaderComponent,
+  TableBodyComponent,
+  TableTrComponent,
+  TableTdComponent,
+  BtnComponent,
+  TableFooterComponent,
+  InputComponent,
+  ModalComponent,
+];
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    LogoComponent,
-    NavigationWrapperComponent,
-    NavigationItemComponent,
-    BtnIconComponent,
-    AvatarComponent,
-    PageHeaderComponent,
-    IconComponent,
-    StatusComponent,
-    TableComponent,
-    TableHeaderComponent,
-    TableBodyComponent,
-    TableTrComponent,
-    TableTdComponent,
-    BtnComponent,
-    TableFooterComponent,
-    InputComponent,
-  ],
+  declarations: [...components],
   imports: [CommonModule, RouterModule],
-  exports: [
-    HeaderComponent,
-    LogoComponent,
-    NavigationWrapperComponent,
-    NavigationItemComponent,
-    BtnIconComponent,
-    AvatarComponent,
-    PageHeaderComponent,
-    IconComponent,
-    StatusComponent,
-    TableComponent,
-    TableHeaderComponent,
-    TableBodyComponent,
-    TableTrComponent,
-    TableTdComponent,
-    BtnComponent,
-    TableFooterComponent,
-    InputComponent,
-  ],
+  exports: [...components],
 })
 export class ComponentsModule {}

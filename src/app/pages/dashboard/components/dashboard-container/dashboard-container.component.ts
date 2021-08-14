@@ -1,7 +1,9 @@
+import { ModalComponent } from './../../../../shared/components/modal/modal.component';
 import { MemberService } from './../../../../shared/services/member.service';
 import { Component, OnInit } from '@angular/core';
 
 import { TableTitle } from './../../../../shared/components/table/table-header/@types/table-headers.model';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-dashboard-container',
@@ -34,9 +36,20 @@ export class DashboardContainerComponent implements OnInit {
     },
   ];
 
-  constructor(public memberService: MemberService) {}
+  constructor(
+    public memberService: MemberService,
+    private modalService: BsModalService
+  ) {}
 
   ngOnInit(): void {}
+
+  openModal() {
+    const modal = this.modalService.show(ModalComponent, {});
+
+    modal.content.onAction.subscribe((res) => {
+      console.log(res);
+    });
+  }
 
   pageChange(page: number) {
     console.log(page);

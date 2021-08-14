@@ -1,9 +1,11 @@
+import { IsGuestGuard } from './guards/is-guest.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'dashboard',
+    canActivate: [IsGuestGuard],
     loadChildren: () =>
       import('../pages/dashboard/dashboard.module').then(
         (m) => m.DashboardModule

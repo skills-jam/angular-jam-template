@@ -8,6 +8,7 @@ import { PostService } from './../../../../shared/services/post.service';
   selector: 'app-post-container',
   templateUrl: './post-container.component.html',
   styleUrls: ['./post-container.component.scss'],
+  providers: []
 })
 export class PostContainerComponent implements OnInit {
   loading$: Observable<boolean>;

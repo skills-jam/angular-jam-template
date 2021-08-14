@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
@@ -34,7 +35,13 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
-      providers: [MemberService, TeamService, PostService, ApiService],
+      providers: [
+        MemberService,
+        TeamService,
+        PostService,
+        ApiService,
+        AuthService,
+      ],
     };
   }
 }

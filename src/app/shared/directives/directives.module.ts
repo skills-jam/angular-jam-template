@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-
+import { TooltipDirective } from './tooltip.directive';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [TooltipDirective],
+  imports: [CommonModule],
+  exports: [TooltipDirective],
 })
-export class DirectivesModule { }
+export class DirectivesModule {}
